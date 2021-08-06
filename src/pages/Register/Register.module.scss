@@ -1,0 +1,17 @@
+.register {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+
+  .title {
+    margin-bottom: 2rem;
+  }
+
+  .registerForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 50rem;
+  }
+}
