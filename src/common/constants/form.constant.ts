@@ -1,0 +1,1 @@
+export const emailRegEx: RegExp = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
