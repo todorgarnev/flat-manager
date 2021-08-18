@@ -2,5 +2,55 @@
   --bg-color: #081229;
   --color-primary: #fff;
   --color-buttons: #de5990;
-  --color-titles: #d73329;
+  --color-error: #d73329;
+}
+
+/* GLOBAL ELEMENT CUSTOM STYLES */
+.inputContainer {
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  .label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+
+  .input {
+    padding: 1rem;
+    width: 100%;
+    color: var(--bg-color);
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .input-error {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--color-error);
+    font-size: 1rem;
+  }
+}
+
+.button {
+  padding: 1rem;
+  color: var(--color-primary);
+  background-color: var(--color-buttons);
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.99);
+  }
 }

@@ -1,11 +1,12 @@
 import React from 'react';
+import Container from './components/Container/Container';
 import Register from './pages/Register/Register';
 
 function App() {
   return (
-    <div className="app">
+    <Container>
       <Register />
-    </div>
+    </Container>
   );
 }
 

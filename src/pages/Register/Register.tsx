@@ -9,44 +9,60 @@ interface RegisterProps { }
 const Register: FunctionComponent<RegisterProps> = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<IRegisterForm>();
   const onSubmit: SubmitHandler<IRegisterForm> = data => console.log("form >>", data);
-  const onError = (errors: any) => console.log(errors);
 
   return (
     <div className={styles.register}>
       <h1 className={styles.title}>Register</h1>
 
-      <form className={styles.registerForm} onSubmit={handleSubmit(onSubmit, onError)} noValidate>
-        <label htmlFor="username">Username</label>
-        <input type="text"
-          id="username"
-          autoComplete="on"
-          {...register("username", { required: true })} />
-        {errors.username && "Username is required"}
+      <form className={styles.registerForm} onSubmit={handleSubmit(onSubmit)} noValidate>
+        <div className={styles.inputsWrapper}>
+          <div className="inputContainer">
+            <label className="label" htmlFor="username">Username</label>
 
-        <label htmlFor="email">Email</label>
-        <input type="email"
-          id="email"
-          autoComplete="on"
-          {...register("email", { required: true, pattern: emailRegEx })} />
-        {errors.email && errors.email.type === "required" && "Email is required"}
-        {errors.email && errors.email.type === "pattern" && "Invalid email"}
+            <input className="input"
+              type="text"
+              id="username"
+              autoComplete="on"
+              {...register("username", { required: true })} />
 
-        <label htmlFor="password">Password</label>
-        <input type="password"
-          id="password"
-          autoComplete="off"
-          {...register("password", { required: true })} />
-        {errors.password && "Password is required"}
+            <span className="input-error">{errors.username && "Username is required"}</span>
+          </div>
 
-        <label htmlFor="confirmPassword">Confirm Password</label>
-        <input type="password"
-          autoComplete="off"
-          {...register("confirmPassword", { required: true })} />
-        {errors.confirmPassword && "Confirm Password is required"}
+          <div className="inputContainer">
+            <label className="label" htmlFor="email">Email</label>
 
-        <button type="submit">Submit</button>
+            <input className="input"
+              type="email"
+              id="email"
+              autoComplete="on"
+              {...register("email", { required: true, pattern: emailRegEx })} />
+
+            <span className="input-error">
+              {errors.email && errors.email.type === "required" && "Email is required"}
+            </span>
+            <span className="input-error">
+              {errors.email && errors.email.type === "pattern" && "Invalid email"}
+            </span>
+          </div>
+
+          <div className="inputContainer">
+            <label className="label" htmlFor="password">Password</label>
+
+            <input className="input"
+              type="password"
+              id="password"
+              autoComplete="off"
+              {...register("password", { required: true, minLength: 3 })} />
+
+            <span className="input-error">
+              {errors.password && "Password is required"}
+            </span>
+          </div>
+        </div>
+
+        <button className="button" type="submit">Register</button>
       </form>
-    </div>
+    </div >
   );
 };
 
