@@ -20,10 +20,10 @@ const Register: FunctionComponent<RegisterProps> = () => {
             <label className="label" htmlFor="username">Username</label>
 
             <input className="input"
-              type="text"
-              id="username"
-              autoComplete="on"
-              {...register("username", { required: true })} />
+                   type="text"
+                   id="username"
+                   autoComplete="on"
+                   {...register("username", { required: true })} />
 
             <span className="input-error">{errors.username && "Username is required"}</span>
           </div>
@@ -32,10 +32,10 @@ const Register: FunctionComponent<RegisterProps> = () => {
             <label className="label" htmlFor="email">Email</label>
 
             <input className="input"
-              type="email"
-              id="email"
-              autoComplete="on"
-              {...register("email", { required: true, pattern: emailRegEx })} />
+                   type="email"
+                   id="email"
+                   autoComplete="on"
+                   {...register("email", { required: true, pattern: emailRegEx })} />
 
             <span className="input-error">
               {errors.email && errors.email.type === "required" && "Email is required"}
@@ -49,10 +49,10 @@ const Register: FunctionComponent<RegisterProps> = () => {
             <label className="label" htmlFor="password">Password</label>
 
             <input className="input"
-              type="password"
-              id="password"
-              autoComplete="off"
-              {...register("password", { required: true, minLength: 3 })} />
+                   type="password"
+                   id="password"
+                   autoComplete="off"
+                   {...register("password", { required: true, minLength: 3 })} />
 
             <span className="input-error">
               {errors.password && "Password is required"}
